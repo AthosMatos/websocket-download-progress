@@ -1,5 +1,5 @@
 {
-  "name": "@repo/logger",
+  "name": "@downloadprogress/logger",
   "version": "0.0.0",
   "type": "module",
   "private": true,
@@ -12,30 +12,27 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/es/index.d.ts",
-        "default": "./dist/es/index.js"
+        "types": "./dist/es/index.d.mts",
+        "default": "./dist/es/index.mjs"
       },
       "require": {
-        "types": "./dist/cjs/index.d.cts",
-        "default": "./dist/cjs/index.cjs"
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
       }
     }
   },
   "scripts": {
-    "build": "bunchee",
-    "dev": "bunchee --watch",
+    "generate-exports": "node ../scripts/generate-exports.mjs",
+    "build": "pnpm run generate-exports && bunchee",
+    "dev": "pnpm run generate-exports && bunchee --watch",
     "lint": "eslint src/",
     "check-types": "tsc --noEmit",
     "test": "jest"
   },
-  "jest": {
-    "preset": "@repo/jest-presets/node"
-  },
   "devDependencies": {
     "@jest/globals": "^30.2.0",
-    "@repo/eslint-config": "workspace:*",
-    "@repo/jest-presets": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@downloadprogress/eslint-config": "workspace:*",
+    "@downloadprogress/typescript-config": "workspace:*",
     "@types/node": "^22.15.3",
     "bunchee": "^6.4.0",
     "eslint": "^9.39.0",
