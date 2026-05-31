@@ -106,7 +106,3 @@ pnpm --filter @downloadprogress/web dev
 - The frontend API URL is set to `http://localhost:3000` in `apps/web/src/App.tsx`.
 - The backend gateway implementation is in `apps/api/src/websocket.gateway.ts`.
 - Shared event constants live under `consts/api/apiEvents.ts`.
-
-## License
-
-This repository is private and configured with workspace-private packages.
